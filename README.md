@@ -1,8 +1,17 @@
 # Windbg cheatsheet
 
-## Conditional breakpoints
+### Symbols
 
-### Break if caller module is X
+#### Configure symbol cache & MS symbol server
+
+
+```ruby
+!sympath srv*c:\symbols*https://msdl.microsoft.com/download/symbols
+```
+
+### Conditional breakpoints
+
+#### Break if caller module is X
 
 Example: break in nt!FsRtlCreateSectionForDataScan when called from within Sysmon driver: 
 
