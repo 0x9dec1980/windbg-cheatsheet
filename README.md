@@ -1,5 +1,14 @@
 # Windbg cheatsheet
 
+
+### VirtualKD + WinDbgX.exe preview
+
+#### Set custom debugger to:
+
+```ruby
+C:\Users\<user>\AppData\Local\Microsoft\WindowsApps\WinDbgX.exe /k com:pipe,resets=0,reconnect,port=$(pipename)
+```
+
 ### Symbols
 
 #### Configure symbol cache & MS symbol server
