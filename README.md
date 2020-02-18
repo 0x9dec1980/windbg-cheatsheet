@@ -43,6 +43,12 @@ dps esp - 3000 esp + 3000
 ```
 dps esp - 4000 esp + 4000
 ```
+
+### Displays the full parameters for all stacks, as well as stacks that are currently paged out and the current kernel stacks.
+```
+!stacks 2
+```
+
 ### Ring3 breakpoints in a remote kernel debug session
 
 Example: Switch context to target process to be debugged invasively, set a breakpoint for this process and force pagein of virtual address if needed.
