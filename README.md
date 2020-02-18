@@ -13,10 +13,15 @@ C:\Users\<user>\AppData\Local\Microsoft\WindowsApps\WinDbgX.exe /k com:pipe,rese
 
 #### Configure symbol cache & MS symbol server
 
-
 ```ruby
 !sympath srv*c:\symbols*https://msdl.microsoft.com/download/symbols
 ```
+#### Load unloaded driver PDB
+
+```ruby
+.reload /unl foo.sys
+```
+
 
 ### Conditional breakpoints
 
@@ -28,6 +33,16 @@ Example: break in nt!FsRtlCreateSectionForDataScan when called from within Sysmo
 bp nt!FsRtlCreateSectionForDataScan "r $t0 = 0; .foreach ( v { k }) { .if ($spat(\"v\", \"*SysmonDrv*\"))  { r $t0 = 1; .break } }; .if($t0 = 0) { gc }"
 ```
 
+### Resolve stack pointers
+
+#### x86
+```
+dps esp - 3000 esp + 3000
+```
+#### x64
+```
+dps esp - 4000 esp + 4000
+```
 ### Ring3 breakpoints in a remote kernel debug session
 
 Example: Switch context to target process to be debugged invasively, set a breakpoint for this process and force pagein of virtual address if needed.
