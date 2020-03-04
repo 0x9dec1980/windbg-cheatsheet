@@ -21,7 +21,11 @@ C:\Users\<user>\AppData\Local\Microsoft\WindowsApps\WinDbgX.exe /k com:pipe,rese
 ```ruby
 .reload /unl foo.sys
 ```
+#### Check if symbols loaded are missmatched
 
+```ruby
+!itoldyouso foo.exe
+```
 
 ### Conditional breakpoints
 
